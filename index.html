@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSAT 2026 Math – Exam‑Ready Practice</title>
+  <style>
+    /* ---------- CSS VARIABLES & RESET ---------- */
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-light: #475569;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #22c55e;
+      --success-bg: #f0fdf4;
+      --error: #ef4444;
+      --error-bg: #fef2f2;
+      --shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.15);
+      --radius: 20px;
+    }
+    body.dark {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --border: #334155;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --success: #4ade80;
+      --success-bg: #052e16;
+      --error: #f87171;
+      --error-bg: #450a0a;
+      --shadow: 0 20px 40px -12px rgba(0,0,0,0.5);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    @media (max-width: 640px) {
+      .page {
+        padding: 1.5rem 1rem;
+        border-radius: 20px;
+      }
+      body {
+        padding: 1rem 0.5rem;
+      }
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 2.5rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+    }
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.8rem 0 0.8rem 0;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* ---------- CONTROL PANEL ---------- */
+    .control-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    .timer-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .timer-display {
+      font-size: 2rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--primary);
+      background: var(--surface);
+      padding: 0.2rem 1rem;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      min-width: 140px;
+      text-align: center;
+    }
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: 0.01em;
+    }
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+    .btn:active {
+      transform: scale(0.97);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: rgba(37, 99, 235, 0.1);
+    }
+    .btn-sm {
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+    }
+
+    /* ---------- PROGRESS & SCORE ---------- */
+    .progress-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      background: var(--bg);
+      padding: 1rem 1.5rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+    .progress-bar-container {
+      flex: 1;
+      min-width: 200px;
+      height: 12px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      min-width: 130px;
+    }
+    .score-display {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--surface);
+      padding: 0.3rem 1.2rem;
+      border-radius: 999px;
+      border: 2px solid var(--border);
+    }
+
+    /* ---------- DOMAIN HEADERS ---------- */
+    .domain-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .domain-header h2 {
+      margin: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .domain-header .weight {
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.2rem 0.9rem;
+      border-radius: 999px;
+    }
+    body.dark .domain-header .weight {
+      background: #3730a3;
+      color: #e0e7ff;
+    }
+
+    /* ---------- QUESTION CARDS ---------- */
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0;
+      transition: box-shadow 0.15s ease, border-color 0.15s;
+    }
+    .question-card:hover {
+      box-shadow: 0 8px 20px -8px rgba(0, 20, 40, 0.12);
+    }
+    .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.15rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      margin: 0.6rem 0 1rem 0;
+    }
+    .q-text p {
+      margin: 0.5rem 0;
+    }
+    .math {
+      font-family: 'Cambria Math', 'Latin Modern Math', 'Times New Roman', serif;
+      font-size: 1.1rem;
+      background: var(--bg);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 0.2rem 0;
+    }
+    .options {
+      list-style: none;
+      margin: 0.8rem 0 1rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+    }
+    @media (max-width: 520px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+    .options label {
+      display: block;
+      padding: 0.5rem 0.8rem;
+      background: var(--bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .options label:hover {
+      border-color: var(--primary);
+    }
+    .options input[type="radio"] {
+      margin-right: 0.5rem;
+      accent-color: var(--primary);
+    }
+    .grid-in-box {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.8rem 0 1rem 0;
+      flex-wrap: wrap;
+    }
+    .grid-in-box label {
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    .grid-in-input {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      width: 160px;
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+    .grid-in-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* ---------- ANSWER PANEL ---------- */
+    .answer-panel {
+      margin-top: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--success-bg);
+      border-left: 6px solid var(--success);
+      border-radius: 12px;
+      display: none;
+      font-size: 0.98rem;
+    }
+    .answer-panel.show {
+      display: block;
+    }
+    .answer-panel .correct {
+      font-weight: 700;
+      color: var(--success);
+    }
+    .answer-panel .incorrect {
+      font-weight: 700;
+      color: var(--error);
+    }
+    .answer-panel .explanation {
+      margin-top: 0.5rem;
+      color: var(--text);
+    }
+    .answer-panel .explanation strong {
+      color: var(--text);
+    }
+
+    /* ---------- TIPS & REFERENCE ---------- */
+    .tips-box {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 1rem 0;
+      border: 1px solid var(--border);
+    }
+    .tips-box h3 {
+      margin-top: 0;
+    }
+    .tips-box ul {
+      margin: 0.8rem 0 0 1.2rem;
+    }
+    .tips-box li {
+      margin: 0.4rem 0;
+    }
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .ref-item {
+      background: var(--surface);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .ref-item strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- UTILITIES ---------- */
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .text-center { text-align: center; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>DSAT 2026 Math — Exam‑Ready Practice</h1>
+    <p class="subhead">
+      26 questions · 70 minutes · Calculator allowed throughout (Desmos built‑in)
+    </p>
+
+    <!-- ===== CONTROL PANEL ===== -->
+    <div class="control-panel">
+      <div class="timer-box">
+        <span class="timer-display" id="timer-display">70:00</span>
+        <div class="btn-group">
+          <button class="btn btn-sm" onclick="startTimer()">▶ Start</button>
+          <button class="btn btn-sm btn-outline" onclick="pauseTimer()">⏸ Pause</button>
+          <button class="btn btn-sm btn-outline" onclick="resetTimer()">↺ Reset</button>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-sm" onclick="gradeExam()">📊 Grade Exam</button>
+        <button class="btn btn-sm btn-outline" onclick="resetExam()">🔄 Reset All</button>
+        <button class="btn btn-sm btn-outline" id="dark-mode-toggle">🌙 Dark</button>
+      </div>
+    </div>
+
+    <!-- ===== PROGRESS & SCORE ===== -->
+    <div class="progress-section">
+      <div class="progress-bar-container">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0 / 26 answered</span>
+      <span class="score-display" id="score-display">Score: – / 26</span>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1 — ALGEBRA                                          -->
+    <!-- ============================================================ -->
+    <div class="domain-header">
+      <h2>Algebra</h2>
+      <span class="weight">~35% of exam</span>
+    </div>
+    <p style="color:var(--text-light); margin-bottom:0.5rem;">
+      Linear equations, inequalities, systems, functions, slope, intercepts.
+    </p>
+
+    <!-- Q1 -->
+    <div class="question-card" data-qid="1" data-type="mc" data-correct="B">
+      <span class="q-num">Question 1</span>
+      <div class="q-text">
+        <p>If <span class="math">3x + 7 = 22</span>, what is the value of <span class="math">x</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A"> A) 3</label>
+        <label><input type="radio" name="q1" value="B"> B) 5</label>
+        <label><input type="radio" name="q1" value="C"> C) 7</label>
+        <label><input type="radio" name="q1" value="D"> D) 15</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(1)">Check</button>
+      <div class="answer-panel" id="ans1" data-explanation="Subtract 7 from both sides: 3x = 15. Divide by 3: x = 5."></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" data-qid="2" data-type="mc" data-correct="B">
+      <span class="q-num">Question 2</span>
+      <div class="q-text">
+        <p>A system of equations is given: <span class="math">2x + y = 10</span> and <span class="math">x – y = 2</span>. What is the value of <span class="math">y</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A"> A) 1</label>
+        <label><input type="radio" name="q2" value="B"> B) 2</label>
+        <label><input type="radio" name="q2" value="C"> C) 3</label>
+        <label><input type="radio" name="q2" value="D"> D) 4</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(2)">Check</button>
+      <div class="answer-panel" id="ans2" data-explanation="Add the equations: (2x + y) + (x – y) = 10 + 2 → 3x = 12 → x = 4. Substitute x = 4 into x – y = 2: 4 – y = 2 → y = 2."></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" data-qid="3" data-type="mc" data-correct="A">
+      <span class="q-num">Question 3</span>
+      <div class="q-text">
+        <p>Which inequality represents the solution set of <span class="math">5 – 3x > –1</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A"> A) x &lt; 2</label>
+        <label><input type="radio" name="q3" value="B"> B) x &gt; 2</label>
+        <label><input type="radio" name="q3" value="C"> C) x &lt; –2</label>
+        <label><input type="radio" name="q3" value="D"> D) x &gt; –2</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(3)">Check</button>
+      <div class="answer-panel" id="ans3" data-explanation="Subtract 5: –3x > –6. Divide by –3 (flip inequality): x < 2."></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" data-qid="4" data-type="mc" data-correct="B">
+      <span class="q-num">Question 4</span>
+      <div class="q-text">
+        <p>What is the slope of the line passing through points <span class="math">(2, 5)</span> and <span class="math">(6, 13)</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A"> A) 1</label>
+        <label><input type="radio" name="q4" value="B"> B) 2</label>
+        <label><input type="radio" name="q4" value="C"> C) 3</label>
+        <label><input type="radio" name="q4" value="D"> D) 4</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(4)">Check</button>
+      <div class="answer-panel" id="ans4" data-explanation="Slope = (13 – 5) / (6 – 2) = 8 / 4 = 2."></div>
+    </div>
+
+    <!-- Q5 Grid-in -->
+    <div class="question-card" data-qid="5" data-type="grid" data-correct="5">
+      <span class="q-num">Question 5 · Grid‑in</span>
+      <div class="q-text">
+        <p>If <span class="math">2(x + 3) – 5 = 3x – 4</span>, what is the value of <span class="math">x</span>?</p>
+      </div>
+      <div class="grid-in-box">
+        <label for="grid1">Answer:</label>
+        <input type="text" id="grid1" class="grid-in-input" placeholder="Enter value" />
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(5)">Check</button>
+      <div class="answer-panel" id="ans5" data-explanation="Expand: 2x + 6 – 5 = 3x – 4 → 2x + 1 = 3x – 4. Subtract 2x: 1 = x – 4 → x = 5."></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" data-qid="6" data-type="mc" data-correct="B">
+      <span class="q-num">Question 6</span>
+      <div class="q-text">
+        <p>If <span class="math">4x + 3 = 2x + 11</span>, what is the value of <span class="math">x</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A"> A) 2</label>
+        <label><input type="radio" name="q6" value="B"> B) 4</label>
+        <label><input type="radio" name="q6" value="C"> C) 8</label>
+        <label><input type="radio" name="q6" value="D"> D) 16</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(6)">Check</button>
+      <div class="answer-panel" id="ans6" data-explanation="4x – 2x = 11 – 3 → 2x = 8 → x = 4."></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" data-qid="7" data-type="mc" data-correct="A">
+      <span class="q-num">Question 7</span>
+      <div class="q-text">
+        <p>A line passes through <span class="math">(0, –3)</span> and <span class="math">(4, 5)</span>. What is the equation of the line?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A"> A) y = 2x – 3</label>
+        <label><input type="radio" name="q7" value="B"> B) y = 2x + 3</label>
+        <label><input type="radio" name="q7" value="C"> C) y = –2x – 3</label>
+        <label><input type="radio" name="q7" value="D"> D) y = 3x – 2</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(7)">Check</button>
+      <div class="answer-panel" id="ans7" data-explanation="Slope = (5 – (–3))/(4 – 0) = 8/4 = 2. y‑intercept = –3. Equation: y = 2x – 3."></div>
+    </div>
+
+    <!-- Q8 Grid-in -->
+    <div class="question-card" data-qid="8" data-type="grid" data-correct="6">
+      <span class="q-num">Question 8 · Grid‑in</span>
+      <div class="q-text">
+        <p>Solve for <span class="math">y</span>: <span class="math">3y – 2x = 12</span>, if <span class="math">x = 3</span>.</p>
+      </div>
+      <div class="grid-in-box">
+        <label for="grid2">Answer:</label>
+        <input type="text" id="grid2" class="grid-in-input" placeholder="Enter value" />
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(8)">Check</button>
+      <div class="answer-panel" id="ans8" data-explanation="Substitute x = 3: 3y – 6 = 12 → 3y = 18 → y = 6."></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2 — ADVANCED MATH                                    -->
+    <!-- ============================================================ -->
+    <div class="domain-header">
+      <h2>Advanced Math</h2>
+      <span class="weight">~30% of exam</span>
+    </div>
+    <p style="color:var(--text-light); margin-bottom:0.5rem;">
+      Quadratics, exponents, polynomials, nonlinear functions, function transformations.
+    </p>
+
+    <!-- Q9 -->
+    <div class="question-card" data-qid="9" data-type="mc" data-correct="B">
+      <span class="q-num">Question 9</span>
+      <div class="q-text">
+        <p>What are the solutions to <span class="math">x² – 5x + 6 = 0</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A"> A) x = 1 and x = 6</label>
+        <label><input type="radio" name="q9" value="B"> B) x = 2 and x = 3</label>
+        <label><input type="radio" name="q9" value="C"> C) x = –2 and x = –3</label>
+        <label><input type="radio" name="q9" value="D"> D) x = –1 and x = –6</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(9)">Check</button>
+      <div class="answer-panel" id="ans9" data-explanation="Factor: (x – 2)(x – 3) = 0 → x = 2 or x = 3."></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" data-qid="10" data-type="mc" data-correct="C">
+      <span class="q-num">Question 10</span>
+      <div class="q-text">
+        <p>The function <span class="math">f(x) = a(x – 4)(x + 2) + b</span> is defined, where <span class="math">a</span> and <span class="math">b</span> are constants. If <span class="math">a/b = 2</span> and the zeroes of the function are <span class="math">x₁</span> and <span class="math">x₂</span>, what is the value of <span class="math">x₁ · x₂</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A"> A) –10</label>
+        <label><input type="radio" name="q10" value="B"> B) –17/2</label>
+        <label><input type="radio" name="q10" value="C"> C) –15/2</label>
+        <label><input type="radio" name="q10" value="D"> D) –6</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(10)">Check</button>
+      <div class="answer-panel" id="ans10" data-explanation="a = 2b. Substitute: 2b(x – 4)(x + 2) + b = 0 → b[2(x – 4)(x + 2) + 1] = 0. Solve 2(x² – 2x – 8) + 1 = 0 → 2x² – 4x – 15 = 0. Product of roots = c/a = –15/2."></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card" data-qid="11" data-type="mc" data-correct="A">
+      <span class="q-num">Question 11</span>
+      <div class="q-text">
+        <p>A scientist began observing a sample of an isotope with a mass of 530,000 mg. The mass decreases by half approximately every 5 days. Which of the following is closest to the mass, in mg, 35 days after the observation began?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q11" value="A"> A) 4,141</label>
+        <label><input type="radio" name="q11" value="B"> B) 15,143</label>
+        <label><input type="radio" name="q11" value="C"> C) 16,563</label>
+        <label><input type="radio" name="q11" value="D"> D) 75,714</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(11)">Check</button>
+      <div class="answer-panel" id="ans11" data-explanation="Half‑life = 5 days; 35 days = 7 half‑lives. Mass = 530,000 × (1/2)⁷ = 530,000 / 128 ≈ 4,140.6 → 4,141."></div>
+    </div>
+
+    <!-- Q12 Grid-in -->
+    <div class="question-card" data-qid="12" data-type="grid" data-correct="3800">
+      <span class="q-num">Question 12 · Grid‑in</span>
+      <div class="q-text">
+        <p>If <span class="math">f(x) = 380</span>, what is the value of <span class="math">10f(x)</span>?</p>
+      </div>
+      <div class="grid-in-box">
+        <label for="grid3">Answer:</label>
+        <input type="text" id="grid3" class="grid-in-input" placeholder="Enter value" />
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(12)">Check</button>
+      <div class="answer-panel" id="ans12" data-explanation="10 × 380 = 3,800."></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card" data-qid="13" data-type="mc" data-correct="C">
+      <span class="q-num">Question 13</span>
+      <div class="q-text">
+        <p>An exponential function passes through <span class="math">(0, 5)</span> and <span class="math">(2, 20)</span>. What is the value of the function when <span class="math">x = 3</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q13" value="A"> A) 20</label>
+        <label><input type="radio" name="q13" value="B"> B) 30</label>
+        <label><input type="radio" name="q13" value="C"> C) 40</label>
+        <label><input type="radio" name="q13" value="D"> D) 80</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(13)">Check</button>
+      <div class="answer-panel" id="ans13" data-explanation="The function is y = 5 · 2^x. When x = 3, y = 5 · 8 = 40."></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card" data-qid="14" data-type="mc" data-correct="B">
+      <span class="q-num">Question 14</span>
+      <div class="q-text">
+        <p>What are the roots of <span class="math">(x – 3)(x + 2) = 0</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q14" value="A"> A) –3 and 2</label>
+        <label><input type="radio" name="q14" value="B"> B) 3 and –2</label>
+        <label><input type="radio" name="q14" value="C"> C) –3 and –2</label>
+        <label><input type="radio" name="q14" value="D"> D) 3 and 2</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(14)">Check</button>
+      <div class="answer-panel" id="ans14" data-explanation="Set each factor to zero: x – 3 = 0 → x = 3; x + 2 = 0 → x = –2."></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card" data-qid="15" data-type="mc" data-correct="A">
+      <span class="q-num">Question 15</span>
+      <div class="q-text">
+        <p>What is the vertex of the parabola <span class="math">y = x² – 6x + 5</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q15" value="A"> A) (3, –4)</label>
+        <label><input type="radio" name="q15" value="B"> B) (–3, –4)</label>
+        <label><input type="radio" name="q15" value="C"> C) (3, 4)</label>
+        <label><input type="radio" name="q15" value="D"> D) (–3, 4)</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(15)">Check</button>
+      <div class="answer-panel" id="ans15" data-explanation="Vertex x = –b/(2a) = 6/2 = 3. y = 9 – 18 + 5 = –4. Vertex = (3, –4)."></div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="question-card" data-qid="16" data-type="mc" data-correct="C">
+      <span class="q-num">Question 16</span>
+      <div class="q-text">
+        <p>If <span class="math">√(x + 5) = 3</span>, what is the value of <span class="math">x</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q16" value="A"> A) 2</label>
+        <label><input type="radio" name="q16" value="B"> B) 3</label>
+        <label><input type="radio" name="q16" value="C"> C) 4</label>
+        <label><input type="radio" name="q16" value="D"> D) 14</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(16)">Check</button>
+      <div class="answer-panel" id="ans16" data-explanation="Square both sides: x + 5 = 9 → x = 4."></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3 — PROBLEM‑SOLVING & DATA ANALYSIS                  -->
+    <!-- ============================================================ -->
+    <div class="domain-header">
+      <h2>Problem‑Solving & Data Analysis</h2>
+      <span class="weight">~20% of exam</span>
+    </div>
+    <p style="color:var(--text-light); margin-bottom:0.5rem;">
+      Ratios, rates, percentages, statistics, scatterplots, tables, probability.
+    </p>
+
+    <!-- Q17 -->
+    <div class="question-card" data-qid="17" data-type="mc" data-correct="B">
+      <span class="q-num">Question 17</span>
+      <div class="q-text">
+        <p>A local gym offers a 25% discount on an annual membership. The regular cost is $288. How much less is the discounted cost than the regular cost?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q17" value="A"> A) $25</label>
+        <label><input type="radio" name="q17" value="B"> B) $72</label>
+        <label><input type="radio" name="q17" value="C"> C) $216</label>
+        <label><input type="radio" name="q17" value="D"> D) $288</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(17)">Check</button>
+      <div class="answer-panel" id="ans17" data-explanation="Discount = 25% of $288 = 0.25 × 288 = $72."></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card" data-qid="18" data-type="mc" data-correct="C">
+      <span class="q-num">Question 18</span>
+      <div class="q-text">
+        <p>Two data sets are shown:</p>
+        <p><strong>Data set A:</strong> 5, 8, 11, 11, 14, 20<br>
+        <strong>Data set B:</strong> 5, 8, 11, 11, 14, 20, 41</p>
+        <p>Which statement best compares the medians of the data sets?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q18" value="A"> A) The median of data set A is greater than the median of data set B.</label>
+        <label><input type="radio" name="q18" value="B"> B) The median of data set A is less than the median of data set B.</label>
+        <label><input type="radio" name="q18" value="C"> C) The medians of data sets A and B are equal.</label>
+        <label><input type="radio" name="q18" value="D"> D) There is not enough information to compare the medians.</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(18)">Check</button>
+      <div class="answer-panel" id="ans18" data-explanation="Data set A has 6 values, median = (11 + 11)/2 = 11. Data set B has 7 values, median = 11. They are equal."></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card" data-qid="19" data-type="mc" data-correct="B">
+      <span class="q-num">Question 19</span>
+      <div class="q-text">
+        <p>The function <span class="math">T(x) = 62 – 8x</span> estimates the temperature (°F) in a city one day in January, where <span class="math">x</span> is the number of hours after 10 a.m. and <span class="math">1 ≤ x ≤ 5</span>. According to the function, what was the estimated decrease in temperature each hour, in °F?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q19" value="A"> A) 4</label>
+        <label><input type="radio" name="q19" value="B"> B) 8</label>
+        <label><input type="radio" name="q19" value="C"> C) 54</label>
+        <label><input type="radio" name="q19" value="D"> D) 62</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(19)">Check</button>
+      <div class="answer-panel" id="ans19" data-explanation="The coefficient of x is –8, meaning the temperature decreases by 8°F each hour."></div>
+    </div>
+
+    <!-- Q20 Grid-in -->
+    <div class="question-card" data-qid="20" data-type="grid" data-correct="5">
+      <span class="q-num">Question 20 · Grid‑in</span>
+      <div class="q-text">
+        <p>A store owner recorded the number of units sold per day for 28 days. What is the minimum number of units sold per day for these 28 days?</p>
+        <p style="font-size:0.9rem; color:var(--text-light);">Data: 5, 8, 11, 11, 14, 20, 41, 5, 8, 11, 11, 14, 20, 41, 5, 8, 11, 11, 14, 20, 41, 5, 8, 11, 11, 14, 20, 41</p>
+      </div>
+      <div class="grid-in-box">
+        <label for="grid4">Answer:</label>
+        <input type="text" id="grid4" class="grid-in-input" placeholder="Enter value" />
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(20)">Check</button>
+      <div class="answer-panel" id="ans20" data-explanation="The smallest value in the data set is 5."></div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card" data-qid="21" data-type="mc" data-correct="B">
+      <span class="q-num">Question 21</span>
+      <div class="q-text">
+        <p>What is the mean of the data set: 4, 8, 12, 16, 20?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q21" value="A"> A) 10</label>
+        <label><input type="radio" name="q21" value="B"> B) 12</label>
+        <label><input type="radio" name="q21" value="C"> C) 14</label>
+        <label><input type="radio" name="q21" value="D"> D) 16</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(21)">Check</button>
+      <div class="answer-panel" id="ans21" data-explanation="Sum = 4 + 8 + 12 + 16 + 20 = 60. Mean = 60 / 5 = 12."></div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card" data-qid="22" data-type="mc" data-correct="B">
+      <span class="q-num">Question 22</span>
+      <div class="q-text">
+        <p>A bag contains 3 red, 5 blue, and 2 green marbles. If one marble is drawn at random, what is the probability that it is red?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q22" value="A"> A) 0.2</label>
+        <label><input type="radio" name="q22" value="B"> B) 0.3</label>
+        <label><input type="radio" name="q22" value="C"> C) 0.5</label>
+        <label><input type="radio" name="q22" value="D"> D) 0.6</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(22)">Check</button>
+      <div class="answer-panel" id="ans22" data-explanation="Total marbles = 3 + 5 + 2 = 10. Probability = 3/10 = 0.3."></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4 — GEOMETRY & TRIGONOMETRY                          -->
+    <!-- ============================================================ -->
+    <div class="domain-header">
+      <h2>Geometry & Trigonometry</h2>
+      <span class="weight">~15% of exam</span>
+    </div>
+    <p style="color:var(--text-light); margin-bottom:0.5rem;">
+      Area, volume, circles, triangles, right‑triangle trigonometry, angles.
+    </p>
+
+    <!-- Q23 -->
+    <div class="question-card" data-qid="23" data-type="mc" data-correct="A">
+      <span class="q-num">Question 23</span>
+      <div class="q-text">
+        <p>In a triangle, the sum of the measures of angles A and B is 159.5°. What is the measure of angle C?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q23" value="A"> A) 20.5°</label>
+        <label><input type="radio" name="q23" value="B"> B) 90°</label>
+        <label><input type="radio" name="q23" value="C"> C) 110.5°</label>
+        <label><input type="radio" name="q23" value="D"> D) 180°</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(23)">Check</button>
+      <div class="answer-panel" id="ans23" data-explanation="Sum of angles in a triangle = 180°. C = 180 – 159.5 = 20.5°."></div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card" data-qid="24" data-type="mc" data-correct="C">
+      <span class="q-num">Question 24</span>
+      <div class="q-text">
+        <p>In a right triangle, one leg is 6 and the hypotenuse is 10. What is the length of the other leg?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q24" value="A"> A) 4</label>
+        <label><input type="radio" name="q24" value="B"> B) 6</label>
+        <label><input type="radio" name="q24" value="C"> C) 8</label>
+        <label><input type="radio" name="q24" value="D"> D) 10</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(24)">Check</button>
+      <div class="answer-panel" id="ans24" data-explanation="Use Pythagorean theorem: a² + 6² = 10² → a² + 36 = 100 → a² = 64 → a = 8."></div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card" data-qid="25" data-type="mc" data-correct="A">
+      <span class="q-num">Question 25</span>
+      <div class="q-text">
+        <p>The equation of a circle is <span class="math">(x – 2)² + (y + 3)² = 25</span>. What is the radius of the circle?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q25" value="A"> A) 5</label>
+        <label><input type="radio" name="q25" value="B"> B) 10</label>
+        <label><input type="radio" name="q25" value="C"> C) 25</label>
+        <label><input type="radio" name="q25" value="D"> D) 50</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(25)">Check</button>
+      <div class="answer-panel" id="ans25" data-explanation="The standard form is (x – h)² + (y – k)² = r². Here r² = 25, so r = 5."></div>
+    </div>
+
+    <!-- Q26 -->
+    <div class="question-card" data-qid="26" data-type="mc" data-correct="A">
+      <span class="q-num">Question 26</span>
+      <div class="q-text">
+        <p>What is the value of <span class="math">sin(30°)</span>?</p>
+      </div>
+      <div class="options">
+        <label><input type="radio" name="q26" value="A"> A) 1/2</label>
+        <label><input type="radio" name="q26" value="B"> B) √2/2</label>
+        <label><input type="radio" name="q26" value="C"> C) √3/2</label>
+        <label><input type="radio" name="q26" value="D"> D) 1</label>
+      </div>
+      <button class="btn btn-sm" onclick="checkQuestion(26)">Check</button>
+      <div class="answer-panel" id="ans26" data-explanation="From the unit circle, sin(30°) = 1/2."></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- QUICK REFERENCE & TIPS                                       -->
+    <!-- ============================================================ -->
+    <div class="tips-box">
+      <h3>📐 Quick Reference Sheet</h3>
+      <div class="ref-grid">
+        <div class="ref-item"><strong>Area of a circle</strong> A = πr²</div>
+        <div class="ref-item"><strong>Circumference</strong> C = 2πr</div>
+        <div class="ref-item"><strong>Area of a triangle</strong> A = ½bh</div>
+        <div class="ref-item"><strong>Pythagorean theorem</strong> a² + b² = c²</div>
+        <div class="ref-item"><strong>Volume of a cylinder</strong> V = πr²h</div>
+        <div class="ref-item"><strong>Volume of a sphere</strong> V = 4/3 πr³</div>
+        <div class="ref-item"><strong>Quadratic formula</strong> x = [–b ± √(b² – 4ac)] / 2a</div>
+        <div class="ref-item"><strong>sin(30°)</strong> = 1/2</div>
+        <div class="ref-item"><strong>cos(60°)</strong> = 1/2</div>
+        <div class="ref-item"><strong>tan(45°)</strong> = 1</div>
+      </div>
+    </div>
+
+    <div class="tips-box">
+      <h3>⚡ Last‑Minute DSAT 2026 Math Strategy</h3>
+      <ul>
+        <li><strong>Master Desmos:</strong> The built‑in graphing calculator can solve systems, graph functions, and compute statistics instantly. Practice typing equations like <span class="math">x² – 5x + 6 = 0</span> to get roots in seconds.</li>
+        <li><strong>Pacing plan:</strong> Questions 1–8: ~45 sec each (bank time). Questions 9–16: ~1:30 each. Questions 17–22: 2:00–2:30 each. Use banked time for hard problems.</li>
+        <li><strong>Algebra & Advanced Math dominate:</strong> Together they make up ~65% of the exam. Prioritize linear equations, systems, quadratics, and exponential functions.</li>
+        <li><strong>Grid‑in rules:</strong> Enter fractions as <span class="math">3/4</span>, decimals as <span class="math">0.75</span>. Negative answers and mixed numbers are allowed. Do not include units.</li>
+        <li><strong>Content domains (2026):</strong> Algebra ~35%, Advanced Math ~30%, Problem‑Solving & Data Analysis ~20%, Geometry & Trigonometry ~15%.</li>
+        <li><strong>Calculator allowed throughout:</strong> Bring an approved calculator or use the Bluebook app’s Desmos. The reference sheet provides key geometry formulas.</li>
+      </ul>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                       -->
+    <!-- ============================================================ -->
+    <div class="footer">
+      <p>
+        DSAT 2026 Math Practice · Built for exam‑day confidence.<br>
+        Question sources: College Board Bluebook practice tests, official SAT Suite Question Bank, and released 2026 digital SAT forms.
+      </p>
+      <p style="margin-top:0.5rem;">
+        <a href="#" onclick="alert('This is a practice page. For official tests, visit satsuite.collegeboard.org.'); return false;">Official College Board Resources</a> ·
+        <a href="#" onclick="alert('Practice with Bluebook for the most realistic experience.'); return false;">Download Bluebook</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT                                                   -->
+  <!-- ============================================================ -->
+  <script>
+    // ---------- TIMER ----------
+    let timerInterval;
+    let timeLeft = 70 * 60; // 70 minutes in seconds
+    let isRunning = false;
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('timer-display').textContent =
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+      if (isRunning) return;
+      isRunning = true;
+      timerInterval = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          isRunning = false;
+          alert('Time is up!');
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      if (!isRunning) return;
+      clearInterval(timerInterval);
+      isRunning = false;
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timeLeft = 70 * 60;
+      updateTimerDisplay();
+    }
+
+    // ---------- DARK MODE ----------
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('darkMode', isDark);
+      darkToggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    });
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+      darkToggle.textContent = '☀️ Light';
+    } else {
+      darkToggle.textContent = '🌙 Dark';
+    }
+
+    // ---------- PROGRESS TRACKING ----------
+    function updateProgress() {
+      const total = 26;
+      let answered = 0;
+      document.querySelectorAll('.question-card').forEach(card => {
+        const qid = card.dataset.qid;
+        const type = card.dataset.type;
+        if (type === 'mc') {
+          if (card.querySelector(`input[name="q${qid}"]:checked`)) answered++;
+        } else {
+          const input = card.querySelector('input[type="text"]');
+          if (input && input.value.trim() !== '') answered++;
+        }
+      });
+      const percent = (answered / total) * 100;
+      document.getElementById('progress-fill').style.width = `${percent}%`;
+      document.getElementById('progress-text').textContent = `${answered} / ${total} answered`;
+    }
+
+    // Attach listeners to all inputs
+    document.querySelectorAll('input[type="radio"], input[type="text"]').forEach(input => {
+      input.addEventListener('input', updateProgress);
+      input.addEventListener('change', updateProgress);
+    });
+
+    // ---------- CHECK QUESTION ----------
+    function checkQuestion(qid) {
+      const card = document.querySelector(`.question-card[data-qid="${qid}"]`);
+      if (!card) return;
+      const type = card.dataset.type;
+      const correct = card.dataset.correct;
+      let userAnswer = '';
+      if (type === 'mc') {
+        const selected = card.querySelector(`input[name="q${qid}"]:checked`);
+        if (selected) userAnswer = selected.value;
+      } else {
+        const input = card.querySelector('input[type="text"]');
+        if (input) userAnswer = input.value.trim();
+      }
+      const panel = card.querySelector('.answer-panel');
+      const explanation = panel.dataset.explanation || '';
+
+      let correctFlag = false;
+      if (type === 'mc') {
+        correctFlag = userAnswer === correct;
+      } else {
+        // For grid-in, compare numeric values (handles decimals)
+        const userNum = parseFloat(userAnswer);
+        const correctNum = parseFloat(correct);
+        correctFlag = !isNaN(userNum) && !isNaN(correctNum) && userNum === correctNum;
+      }
+
+      panel.classList.add('show');
+      if (correctFlag) {
+        panel.innerHTML = `<p><span class="correct">Correct! ✅</span></p><p class="explanation">${explanation}</p>`;
+      } else {
+        panel.innerHTML = `<p><span class="incorrect">Incorrect ❌</span> Correct answer: <strong>${correct}</strong></p><p class="explanation">${explanation}</p>`;
+      }
+      card.dataset.checked = 'true';
+    }
+
+    // ---------- GRADE EXAM ----------
+    function gradeExam() {
+      let score = 0;
+      const total = 26;
+      document.querySelectorAll('.question-card').forEach(card => {
+        const qid = card.dataset.qid;
+        checkQuestion(qid);
+        const type = card.dataset.type;
+        const correct = card.dataset.correct;
+        let userAnswer = '';
+        if (type === 'mc') {
+          const selected = card.querySelector(`input[name="q${qid}"]:checked`);
+          if (selected) userAnswer = selected.value;
+        } else {
+          const input = card.querySelector('input[type="text"]');
+          if (input) userAnswer = input.value.trim();
+        }
+        let correctFlag = false;
+        if (type === 'mc') {
+          correctFlag = userAnswer === correct;
+        } else {
+          const userNum = parseFloat(userAnswer);
+          const correctNum = parseFloat(correct);
+          correctFlag = !isNaN(userNum) && !isNaN(correctNum) && userNum === correctNum;
+        }
+        if (correctFlag) score++;
+      });
+      document.getElementById('score-display').textContent = `Score: ${score} / ${total}`;
+    }
+
+    // ---------- RESET EXAM ----------
+    function resetExam() {
+      document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+      document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+      document.querySelectorAll('.answer-panel').forEach(p => {
+        p.classList.remove('show');
+        p.innerHTML = '';
+      });
+      document.querySelectorAll('.question-card').forEach(c => c.dataset.checked = 'false');
+      document.getElementById('score-display').textContent = 'Score: – / 26';
+      updateProgress();
+    }
+
+    // ---------- INITIALISE ----------
+    updateTimerDisplay();
+    updateProgress();
+  </script>
+</body>
+</html>
